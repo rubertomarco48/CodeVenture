@@ -39,7 +39,7 @@ function LoginModal({ isOpen, toggleModal }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mostraSignUp, setMostraSignUp] = useState(false);
-
+  const [isLogged,setIsLogged]= useState(false)
   const gestisciMouseEnter = () => {
     setIsHovered(true);
   };
@@ -59,8 +59,27 @@ function LoginModal({ isOpen, toggleModal }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Qui puoi gestire la logica di accesso con email e password
-    console.log("Email:", email);
-    console.log("Password:", password);
+    try {
+      const user={
+        email:email,
+        password:password
+      }
+      fetch("http://localhost:3000/login",{
+      method:"POST",
+      headers: {
+        'Content-Type': 'application/json',
+        },
+      body:JSON.stringify(user)
+      })
+      .then(res=>res.json())
+      .then(res=>console.log(res))
+      // per l'autenticazione
+      .then(()=>setIsLogged(true))      
+      
+    } catch (error) {
+      
+      console.error(error);
+    }
     // Aggiungi la logica di accesso qui...
   };
 
@@ -142,7 +161,7 @@ function LoginModal({ isOpen, toggleModal }) {
                     type="submit"
                     className="bg-cfff4b text-white px-10 py-4 rounded-md hover:bg-opacity-80"
                     style={stileBottone}
-                    onClick={onLogin(email,password)}
+                    
                   >
                     Accedi
                   </button>
@@ -163,6 +182,7 @@ function LoginModal({ isOpen, toggleModal }) {
       {mostraSignUp && (
         <SignUpModal isOpen={mostraSignUp} toggleModal={() => setMostraSignUp(false)} />
       )}
+      {isLogged===true && <h1>logged</h1>}
     </div>
   );
 }

@@ -1,11 +1,13 @@
 import express from "express";
 import morgan from "morgan";
+import cors from "cors";
 import "dotenv/config"
 import { login,setNewUser,seeAllUsers,changeEmail,setLvl,seeUser,changePassword,setScore, changeName, changeHtmlReward, changeCssReward, changeSassReward, changeJsReward, changeVolumeMusica, changeVolumeEffetti, changeNotifiche, deleteById } from "./controller/userController.mjs";
 const app = express();
 const port = process.env.port
 const host = process.env.host
 app.use(morgan("dev"))
+app.use(cors())
 app.use(express.json())
 
 

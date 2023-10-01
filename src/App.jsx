@@ -1,9 +1,9 @@
-import NavBar from './Components/NavBar/NavBar'
+/* import NavBar from './Components/NavBar/NavBar' */
 import './App.css'
 import Footer from './Components/Footer/Footer'
-import RiquadroEsempi from './RiquadroEsempi/RiquadroEsempi'
+import RiquadroEsempio from './Components/RiquadroEsempi/RiquadroEsempi'
 import { FramePresentazione } from './Components/FramePresentazione/FramePresentazione'
-import Button from './Components/ButtonPlay/Button'
+/* import Button from './Components/ButtonPlay/Button' */
 import { Routes, Route } from 'react-router-dom'
 import Game from './Components/Game'
 import Layout from './Components/Layout'
@@ -15,7 +15,7 @@ function App() {
         element={
           <Layout>
             {' '}
-            <FramePresentazione /> <RiquadroEsempi /> <Footer />{' '}
+            <FramePresentazione /> <RiquadroEsempio/> <Footer />{' '}
           </Layout>
         }
       />

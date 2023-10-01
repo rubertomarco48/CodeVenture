@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import imageLine2 from '../assets/image/Screenshot_2023-09-29_alle_18.45.23__2_-removebg-preview.png'
-import imageBgOne from '../assets/image/Screenshot_2023-09-29_alle_18.54.47__2_-removebg-preview.png'
-import imageBgTwo from '../assets/image/Screenshot_2023-09-29_alle_18.56.22__2_-removebg-preview.png'
-import imageLine3 from '../assets/image/Screenshot_2023-09-29_alle_19.19.12__2_-removebg-preview.png'
-import latestImage from '../assets/image/Screenshot_2023-09-29_alle_19.39.06__2_-removebg-preview.png'
+import imageLine2 from '../../assets/image/Screenshot_2023-09-29_alle_18.45.23__2_-removebg-preview.png'
+import imageBgOne from '../../assets/image/Screenshot_2023-09-29_alle_18.54.47__2_-removebg-preview.png'
+import imageBgTwo from '../../assets/image/Screenshot_2023-09-29_alle_18.56.22__2_-removebg-preview.png'
+import imageLine3 from '../../assets/image/Screenshot_2023-09-29_alle_19.19.12__2_-removebg-preview.png'
+import latestImage from '../../assets/image/Screenshot_2023-09-29_alle_19.39.06__2_-removebg-preview.png'
 import './RiquadroEsempi.css'
 
 function RiquadroEsempio() {

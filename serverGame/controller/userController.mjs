@@ -303,7 +303,8 @@ const login = async (req, res) => {
   try {
     const user = await db.oneOrNone("SELECT * FROM gioco WHERE email=$1", email);
     if (user.password === password) {
-      res.status(200).json({msg:`Ciao ${user.name} e bentornato`})
+      res.status(200).json({msg:`Ciao ${user.name} e bentornato`,
+                            data:user})
     }else{
       res.status(401).json({msg:"La password e' errata"})
     }  

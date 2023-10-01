@@ -70,9 +70,28 @@ function SignUpModal({ isOpen, toggleModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Username:", username);
-    console.log("Email:", email);
-    console.log("Password:", password);
+    const user={
+      email:email,
+      password:password,
+      name:username
+    }
+    try{
+    fetch("http://localhost:3000/newuser",{
+    method:"POST",
+    headers: {
+      'Content-Type': 'application/json',
+      },
+    body:JSON.stringify(user)
+    })
+    .then(res=>res.json())
+    .then(res=>console.log(res))
+    // per l'autenticazione
+         
+    
+  } catch (error) {
+    
+    console.error(error);
+  }
   };
   return (
     <div>
