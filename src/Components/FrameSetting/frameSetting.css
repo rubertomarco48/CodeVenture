@@ -1,0 +1,32 @@
+.fillBorder{
+    width: 100%;
+  }
+  .sfondoFrame{
+    background-color: #fcda3a;
+  }
+  .titolFrame{
+    top: -5rem;
+    background-image: url("../../assets/image/legno.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    
+  }
+  .borderImage{
+    display: flex;
+    justify-content: center;
+    border-image-source: url('../../assets/image/border-pieno.png');
+    border-image-slice: 70;
+    border-image-repeat: repeat;
+    border-width: 4.375rem;
+    border-style: solid;
+     
+  }
+  
+  .rangeBarra {
+    accent-color:#a19148;
+    cursor: ew-resize;
+  
+  }

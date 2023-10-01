@@ -1,0 +1,32 @@
+.pixelFont{
+    font-family: 'DotGothic16', sans-serif;
+    
+  }
+  .ombra{
+    text-shadow: 3px 2px 0px #150906;
+    border-radius: 1rem;
+    padding: 0.5rem;
+  }
+  .ombra:hover{
+    background-color: #0386ba ;
+  }
+  
+  .colorBackYellow{
+    background-color: rgb(207, 255, 75);
+  }
+  .colorTextYellow{
+    color: rgb(207, 255, 75);
+  }
+  .colorBackCyan{
+    background-color: #049CD8 ;
+  }
+  .colorTextCyan{
+    color: #049CD8;
+  }
+  .verdeChiaro{
+    background-color: #BBE73E;
+  }
+  .verdeScuro{
+    background-color: #95BA2B ;
+  }
+  

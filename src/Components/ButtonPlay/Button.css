@@ -1,0 +1,12 @@
+.BottoneGioca{
+    display: flex;
+    background-color:#130B3F;
+    padding: 20px 30px;
+    margin-top:  1rem;
+    color: white;
+    font-size:25px;
+    cursor: pointer;
+    border-radius:1.5rem;
+    align-items: center;
+    gap:1rem;
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+      </style>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
+
+    <script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBRa1oyjeL6m1svRGgt6o6pjQkbDzhcGJ8",
+  authDomain: "codeventure-ca80d.firebaseapp.com",
+  projectId: "codeventure-ca80d",
+  storageBucket: "codeventure-ca80d.appspot.com",
+  messagingSenderId: "76734911231",
+  appId: "1:76734911231:web:4b21e455a78125afdcf2ca",
+  measurementId: "G-YHG6G83XBQ"
+};
+const app = firebase.initializeApp(firebaseConfig);
+
+import { getAuth } from "firebase/auth";
+
+// ottieni un riferimento al servizio
+const auth = getAuth(app);
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
