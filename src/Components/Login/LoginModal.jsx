@@ -72,7 +72,7 @@ function LoginModal({ isOpen, toggleModal }) {
       body:JSON.stringify(user)
       })
       .then(res=>res.json())
-      .then(res=>console.log(res))
+      .then(res=>console.log(res))/*  qui dentro salva res.data in un  context o uno state */
       // per l'autenticazione
       .then(()=>setIsLogged(true))      
       

@@ -1,6 +1,5 @@
 import pgPromise from "pg-promise";
 import Joi from "joi";
-import { json } from "express";
 const db = pgPromise()("postgres://postgres:ciaook10@localhost:5432/video");
 
 /* DROP TABLE IF EXISTS gioco; */
@@ -48,15 +47,23 @@ const newUserSchema = Joi.object({
 
 /*˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅  POST  ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅ ˅  */
 const setNewUser = async (req, res) => {
+  const result = await db.any("SELECT * FROM gioco")
+
   const validateNewUser = newUserSchema.validate(req.body);
   if (validateNewUser.error) {
     return res.status(400).json({msg:validateNewUser.error.details[0].message})
   }else{
     const { name, password, email } = req.body;
-    await db.none(
-      `INSERT INTO gioco (name,password,email) VALUES ('${name}','${password}','${email}')`
-    );
-    return res.status(201).json({ msg: "elemento creato" });
+    const verifica = result.find(element=>element.name===name) 
+    if (verifica === undefined) {
+      await db.none(
+        `INSERT INTO gioco (name,password,email) VALUES ('${name}','${password}','${email}')`
+      );
+      return res.status(201).json({ msg: "elemento creato" });
+    }else{
+      return res.status(400).json({msg:"Utente già registrato"})
+    }
+    
   }
 };
 
