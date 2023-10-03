@@ -54,8 +54,9 @@ const setNewUser = async (req, res) => {
     return res.status(400).json({msg:validateNewUser.error.details[0].message})
   }else{
     const { name, password, email } = req.body;
-    const verifica = result.find(element=>element.name===name) 
-    if (verifica === undefined) {
+    const verifica1 = result.find(element=>element.name===name)
+    const verifica2 =result.find(element=>element.email===email)
+    if (verifica1 === undefined && verifica2===undefined) {
       await db.none(
         `INSERT INTO gioco (name,password,email) VALUES ('${name}','${password}','${email}')`
       );
