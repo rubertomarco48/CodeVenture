@@ -82,10 +82,9 @@ const seeAllUsers = async (req, res) => {
 };
 
 const seeUser = async (req, res) => {
-  const { id } = req.params;
+  const id = req.params.id;
   const user = await db.oneOrNone("SELECT * FROM gioco WHERE id=$1", id);
   res.status(200).json(user);
-
   /* questa serve per prendere un utente tramite l'id */
 };
 

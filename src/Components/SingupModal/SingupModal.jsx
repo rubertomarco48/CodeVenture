@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const stileModale = {
   fontFamily: "pixel-font",
@@ -84,7 +84,9 @@ function SignUpModal({ isOpen, toggleModal }) {
     body:JSON.stringify(user)
     })
     .then(res=>res.json())
+    .then(()=>alert("Ti sei registrato,ora effettua il login"))
     .then(res=>console.log(res))
+    .then(()=>setIsHovered(false))
     // per l'autenticazione
          
     

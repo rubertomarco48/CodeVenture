@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SignUpModal from "../SingupModal/SingupModal"; 
-import { onLogin } from "./onLogin.mjs";
+
 
 const stileModale = {
   fontFamily: "pixel-font",
@@ -72,9 +72,12 @@ function LoginModal({ isOpen, toggleModal }) {
       body:JSON.stringify(user)
       })
       .then(res=>res.json())
+      .then((res)=>{alert(`L'utente ${res.data.name} si è loggato`)})
       .then(res=>console.log(res))/*  qui dentro salva res.data in un  context o uno state */
       // per l'autenticazione
-      .then(()=>setIsLogged(true))      
+
+      .then(()=>setIsLogged(true))
+            
       
     } catch (error) {
       
@@ -85,6 +88,7 @@ function LoginModal({ isOpen, toggleModal }) {
 
   return (
     <div>
+
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div
@@ -157,14 +161,14 @@ function LoginModal({ isOpen, toggleModal }) {
                 </div>
 
                 <div className="mt-4 flex justify-between">
-                  <button
+                  {!isLogged && <button
                     type="submit"
                     className="bg-cfff4b text-white px-10 py-4 rounded-md hover:bg-opacity-80"
                     style={stileBottone}
                     
                   >
                     Accedi
-                  </button>
+                  </button>}
 
                   <button
                     className="bg-blue-500 text-white px-10 py-4 rounded-md hover:bg-blue-700 ml-4"
@@ -182,7 +186,6 @@ function LoginModal({ isOpen, toggleModal }) {
       {mostraSignUp && (
         <SignUpModal isOpen={mostraSignUp} toggleModal={() => setMostraSignUp(false)} />
       )}
-      {isLogged===true && <h1>logged</h1>}
     </div>
   );
 }
