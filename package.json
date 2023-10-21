@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "firebase": "^10.4.0",
+    "pg-promise": "^11.5.4",
     "pixi.js": "^7.2.4",
     "react": "^18.2.0",
     "react-bash": "^1.6.0",
@@ -26,7 +27,7 @@
     "@types/node": "^20.6.4",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
+    "@vitejs/plugin-react": "^4.1.0",
     "autoprefixer": "^10.4.15",
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.32.2",
