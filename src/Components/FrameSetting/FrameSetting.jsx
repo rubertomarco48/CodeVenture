@@ -7,6 +7,7 @@ function FrameSetting() {
   const [notifiche, setNotifiche] = useState(false);
 
   return (
+    
     <div className="borderImage flex flex-col relative w-2/3 ">
       <div className="fillBorder  h-48 flex flex-col items-start sfondoFrame">
         <div className="flex w-5/6 flex-row justify-between sfondoFrame">
