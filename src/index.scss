@@ -7,7 +7,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.nobg{
+  background-image: none;
+  background-repeat: none;
+}
+.bg{
+  background-image: url(./assets/image/grass-pixel-art-background-texture-250nw-1910167030.jpg);
+  background-repeat: repeat;
+}
 .sfondoEsegui{
   background-color: #1E1E1E;
 }
@@ -31,4 +38,29 @@
   img{
     filter: invert(100%);
   }
+}
+
+.impostazioni2{
+  position: fixed ;
+  right: 120px;
+  top: 20px;
+  background-color: #000000;
+  color: white;
+  padding: 1rem;
+  border-radius: 50%;
+  transition: all 0.5s;
+  &:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 5px white;
+    border: white solid 2px;
+  }
+  img{
+    filter: invert(100%);
+  }
+}
+.hide{
+  opacity: 0.5;
+}
+.vis{
+  opacity: 1;
 }
