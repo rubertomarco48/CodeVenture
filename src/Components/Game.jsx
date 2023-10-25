@@ -46,9 +46,9 @@ export default function Game() {
     const character = new PIXI.Sprite(characterTexture);
     character.width = 300;
     character.height = 300;
-    character.anchor.set(0.5, 0.21);
+    character.anchor.set(0.15, 0.20);
     character.x = app.screen.width / 4;
-    character.y = app.screen.height / 1.7;
+    character.y = app.screen.height / 1.67;
 
     app.stage.addChild(character);
     characterRef.current = character;
@@ -150,17 +150,32 @@ export default function Game() {
     
         const graphics = new PIXI.Graphics();
         graphics.beginFill(0xffffff);
-        graphics.drawRect(600, 700, 950, 150);
+        graphics.drawRect(700, 20, 700, 500);
         graphics.endFill();
         app.stage.addChild(graphics);
     
-        let conversationText = new PIXI.Text('Ciao, sono code è da oggi inzierà la tua avventura nella programmazione', {
+        let conversationText = new PIXI.Text(`Ciao Admin!, sono Code è da oggi inzierà la tua avventura 
+nella programmazione. La tua avventura incomincia dalle variabili
+Una variabile è un oggetto che rappresenta una posizione di memoria.
+In cui è possibile memorizzare e recuperare un valore.Una variabile
+ha un nome univoco che viene utilizzato per identificarla nel programma
+Il nome della variabile è ciò che permette di fare riferimento 
+ad essa nel programma
+In javascript le variabili vengono dichiarate con le parole chiave:
+Var: la variabile può essere dichiarata senza assegnare un va lore iniziale.
+Let viene utilizzata per dichiarare una variabile con uno scope di blocco.
+Costanti, in javascript le costanti vengono dichiarate con la parola 
+chiave const.
+
+Esercizio: 
+Date due variabili si scambi il loro contenuto
+`, {
           fontFamily: 'Arial',
-          fontSize: 24,
+          fontSize: 20,
           fill: 0x000000,
         });
-        conversationText.x = 610;
-        conversationText.y = 750;
+        conversationText.x = 710;
+        conversationText.y = 50;
         app.stage.addChild(conversationText);
     
         graphics.interactive = true;
@@ -168,41 +183,42 @@ export default function Game() {
         graphics.on('pointerdown', () => {
           app.stage.removeChild(graphics);
           app.stage.removeChild(conversationText);
-          if (conversationText.text === 'Ciao, sono code è da oggi inzierà la tua avventura nella programmazione') {
-            conversationText.text = 'La tua avventura incomincia dalle variabili';
-          } else if (conversationText.text === 'La tua avventura incomincia dalle variabili') {
-            conversationText.text = `Una variabile è un oggetto che rappresenta una posizione di memoria.`;
-          } else if (conversationText.text === `Una variabile è un oggetto che rappresenta una posizione di memoria.`) {
-            conversationText.text = `in cui è possibile memorizzare e recuperare un valore`;
-          } else if (conversationText.text === `in cui è possibile memorizzare e recuperare un valore`) {
-            conversationText.text = `Una variabile ha un nome univoco che viene utilizzato per identificarla nel programma`;
-          } else if (conversationText.text === `Una variabile ha un nome univoco che viene utilizzato per identificarla nel programma`) {
-            conversationText.text = `Il nome della variabile è ciò che permette di fare riferimento ad essa nel programma.`;
-          } else if (conversationText.text === `Il nome della variabile è ciò che permette di fare riferimento ad essa nel programma.`){
-              conversationText.text = `In javascript le variabili vengono dichiarate con le parole chiave:`;
-          } else if (conversationText.text === `In javascript le variabili vengono dichiarate con le parole chiave:`) {
-            conversationText.text = `Var: la variabile può essere dichiarata senza assegnare un valore iniziale.`;
-          } else if (conversationText.text === `Var: la variabile può essere dichiarata senza assegnare un valore iniziale.`){
-              conversationText.text=` Può essere successivamente assegnata con un valore.`;
-          } else if (conversationText.text===` Può essere successivamente assegnata con un valore.`) {
-            conversationText.text = `Tuttavia la parola chiave var è deprecata, ed è stata sostituita con let.`;
-          } else if ( conversationText.text ===`Tuttavia la parola chiave var è deprecata, ed è stata sostituita con let.`){
-            conversationText.text = `Let viene utilizzata per dichiarare una variabile con uno scope di blocco.`;
-          } else if(conversationText.text === `Let viene utilizzata per dichiarare una variabile con uno scope di blocco.`) {
-            conversationText.text = `Sintassi di let: let variabelName="sono una variabile";`
-          } else if (  conversationText.text === `Sintassi di let: let variabelName="sono una variabile";`) {
-            conversationText.text =`Costanti, in javascript le costanti vengono dichiarate con la parola chiave const`;
-          } else if( conversationText.text ===`Costanti, in javascript le costanti vengono dichiarate con la parola chiave const`){
-            conversationText.text =`nel momento in cui si assegna un valore a const, quel valore non può essere modificato.`;
-          } else if (conversationText.text ===`nel momento in cui si assegna un valore a const, quel valore non può essere modificato.`) {
-            conversationText.text = `Sintassi di const: const pi=3.14;`
-          } else if( conversationText.text === `Sintassi di const: const pi=3.14;`){
-            conversationText.text = `Adesso che abbiamo visto le prime nonzioni sulle variabili, partirà la tua prima sfida`
-          }else if (conversationText.text === `Adesso che abbiamo visto le prime nonzioni sulle variabili, partirà la tua prima sfida`){
-            conversationText.text=`Date due variabili si scambi il loro contenuto`
-          }else{
-            conversationComplete = true;
-          }
+          /* modfica blocco di testo*/ 
+          // if (conversationText.text === 'Ciao, sono code è da oggi inzierà la tua avventura nella programmazione') {
+          //   conversationText.text = 'La tua avventura incomincia dalle variabili';
+          // } else if (conversationText.text === 'La tua avventura incomincia dalle variabili') {
+          //   conversationText.text = `Una variabile è un oggetto che rappresenta una posizione di memoria.`;
+          // } else if (conversationText.text === `Una variabile è un oggetto che rappresenta una posizione di memoria.`) {
+          //   conversationText.text = `in cui è possibile memorizzare e recuperare un valore`;
+          // } else if (conversationText.text === `in cui è possibile memorizzare e recuperare un valore`) {
+          //   conversationText.text = `Una variabile ha un nome univoco che viene utilizzato per identificarla nel programma`;
+          // } else if (conversationText.text === `Una variabile ha un nome univoco che viene utilizzato per identificarla nel programma`) {
+          //   conversationText.text = `Il nome della variabile è ciò che permette di fare riferimento ad essa nel programma.`;
+          // } else if (conversationText.text === `Il nome della variabile è ciò che permette di fare riferimento ad essa nel programma.`){
+          //     conversationText.text = `In javascript le variabili vengono dichiarate con le parole chiave:`;
+          // } else if (conversationText.text === `In javascript le variabili vengono dichiarate con le parole chiave:`) {
+          //   conversationText.text = `Var: la variabile può essere dichiarata senza assegnare un valore iniziale.`;
+          // } else if (conversationText.text === `Var: la variabile può essere dichiarata senza assegnare un valore iniziale.`){
+          //     conversationText.text=` Può essere successivamente assegnata con un valore.`;
+          // } else if (conversationText.text===` Può essere successivamente assegnata con un valore.`) {
+          //   conversationText.text = `Tuttavia la parola chiave var è deprecata, ed è stata sostituita con let.`;
+          // } else if ( conversationText.text ===`Tuttavia la parola chiave var è deprecata, ed è stata sostituita con let.`){
+          //   conversationText.text = `Let viene utilizzata per dichiarare una variabile con uno scope di blocco.`;
+          // } else if(conversationText.text === `Let viene utilizzata per dichiarare una variabile con uno scope di blocco.`) {
+          //   conversationText.text = `Sintassi di let: let variabelName="sono una variabile";`
+          // } else if (  conversationText.text === `Sintassi di let: let variabelName="sono una variabile";`) {
+          //   conversationText.text =`Costanti, in javascript le costanti vengono dichiarate con la parola chiave const`;
+          // } else if( conversationText.text ===`Costanti, in javascript le costanti vengono dichiarate con la parola chiave const`){
+          //   conversationText.text =`nel momento in cui si assegna un valore a const, quel valore non può essere modificato.`;
+          // } else if (conversationText.text ===`nel momento in cui si assegna un valore a const, quel valore non può essere modificato.`) {
+          //   conversationText.text = `Sintassi di const: const pi=3.14;`
+          // } else if( conversationText.text === `Sintassi di const: const pi=3.14;`){
+          //   conversationText.text = `Adesso che abbiamo visto le prime nonzioni sulle variabili, partirà la tua prima sfida`
+          // }else if (conversationText.text === `Adesso che abbiamo visto le prime nonzioni sulle variabili, partirà la tua prima sfida`){
+          //   conversationText.text=`Date due variabili si scambi il loro contenuto`
+          // }else{
+          //   conversationComplete = true;
+          // }
     
           app.stage.addChild(graphics);
           app.stage.addChild(conversationText);

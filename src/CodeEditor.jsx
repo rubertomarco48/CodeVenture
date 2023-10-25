@@ -33,9 +33,9 @@ function CodeEditor() {
       outputText += "a: " + a + "\n";
       outputText += "b: " + b + "\n";
 
-      setOutput(outputText);
-    } catch (error) {
-      setOutput(<span style={{ color: 'red' }}>Errore di esecuzione: {error.message}</span>);
+      setOutput(<span style={{ color: '#4CAF50' }}>{outputText}</span>)
+        } catch (error) {
+      setOutput(<span style={{color: 'red'}}>Errore di esecuzione: {error.message}</span>);
     }
   };
 
@@ -43,7 +43,7 @@ function CodeEditor() {
     <div className='rounded-md relative z-0'>
       <MonacoEditor
         width="600"
-        height="500"
+        height="400"
         language="javascript"
         theme="vs-dark"
         value={code}
