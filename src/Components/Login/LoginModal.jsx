@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SignUpModal from "../SingupModal/SingupModal"; 
 
-
 const stileModale = {
   fontFamily: "pixel-font",
 };
@@ -21,6 +20,7 @@ const stileEtichetta = {
   fontSize: "14px",
   fontWeight: "bold",
 };
+
 const stileChiusuraBottone = {
   position: "absolute",
   left: "65%",
@@ -39,7 +39,9 @@ function LoginModal({ isOpen, toggleModal }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mostraSignUp, setMostraSignUp] = useState(false);
-  const [isLogged,setIsLogged]= useState(false)
+  const [isLogged, setIsLogged] = useState(false);
+  const [mostraPassword, setMostraPassword] = useState(false);
+
   const gestisciMouseEnter = () => {
     setIsHovered(true);
   };
@@ -56,39 +58,38 @@ function LoginModal({ isOpen, toggleModal }) {
     setMostraSignUp(true);
   };
 
+  const toggleMostraPassword = () => {
+    setMostraPassword(!mostraPassword);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Qui puoi gestire la logica di accesso con email e password
     try {
-      const user={
-        email:email,
-        password:password
-      }
-      fetch("http://localhost:3000/login",{
-      method:"POST",
-      headers: {
-        'Content-Type': 'application/json',
+      const user = {
+        email: email,
+        password: password
+      };
+      fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
         },
-      body:JSON.stringify(user)
+        body: JSON.stringify(user)
       })
-      .then(res=>res.json())
-      .then((res)=>{alert(`L'utente ${res.data.name} si è loggato`)})
-      .then(res=>console.log(res))/*  qui dentro salva res.data in un  context o uno state */
-      // per l'autenticazione
+        .then(res => res.json())
+        .then((res) => {
+          alert(`L'utente ${res.data.name} si è loggato`);
+        })
+        .then(res => console.log(res))
+        .then(() => setIsLogged(true));
 
-      .then(()=>setIsLogged(true))
-            
-      
     } catch (error) {
-      
       console.error(error);
     }
-    // Aggiungi la logica di accesso qui...
   };
 
   return (
     <div>
-
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div
@@ -151,13 +152,19 @@ function LoginModal({ isOpen, toggleModal }) {
                     Password:
                   </label>
                   <input
-                    type="password"
+                    type={mostraPassword ? "text" : "password"}
                     id="password"
                     className="border rounded-md p-2 w-full"
                     placeholder="Inserisci la tua password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
+                  <button
+                    onClick={toggleMostraPassword}
+                    className="absolute right-0 top-0 m-2 text-black bg-white rounded-md px-2"
+                  >
+                    {mostraPassword ? "Nascondi" : "Visualizza"}
+                  </button>
                 </div>
 
                 <div className="mt-4 flex justify-between">
@@ -165,7 +172,6 @@ function LoginModal({ isOpen, toggleModal }) {
                     type="submit"
                     className="bg-cfff4b text-white px-10 py-4 rounded-md hover:bg-opacity-80"
                     style={stileBottone}
-                    
                   >
                     Accedi
                   </button>}
