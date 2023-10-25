@@ -1,7 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as PIXI from 'pixi.js';
 import CodeEditor from '../CodeEditor';
+import FrameSetting from './FrameSetting/FrameSetting';
+import { Link } from 'react-router-dom';
 export default function Game() {
+  const [showSetting,setShowSetting]=useState(false)
   const fieldContainer = useRef(null);
   const characterRef = useRef(null);
   const npcRef = useRef(null);
@@ -240,6 +243,25 @@ Date due variabili si scambi il loro contenuto
       window.removeEventListener('keyup', handleKeyUp);
     };
   }, []);
+ const handleHome=()=>{
+  let body = document.querySelector("body")
+  body.className="bg"
+ }
+
+  const handleShowSetting=()=>{
+    setShowSetting(prev=>!prev)
+    if(!showSetting){
+      let canva = document.querySelector("canvas")
+      canva.className="hide";
+      let body = document.querySelector("body")
+      body.className="nobg"
+    }else{
+      let canva = document.querySelector("canvas")
+      canva.className="vis";
+      let body = document.querySelector("body")
+      body.className="bg"
+    }
+  }
 
   return (
     <div className="relative">
@@ -248,6 +270,9 @@ Date due variabili si scambi il loro contenuto
       <div className="absolute top-4 left-4">
         <CodeEditor />
       </div>
+      <button className='impostazioni' onClick={handleShowSetting}>{!showSetting ?  <img src="./src/assets/image/ingranaggio.gif"/> :<img src="./src/assets/image/x.png" alt="" />}</button>
+      {showSetting && <FrameSetting/>}
+      <Link onClick={handleHome} className='absolute impostazioni2' to="/"><img src="./src/assets/image/home.png" alt="" /></Link>
     </div>
   );
 }

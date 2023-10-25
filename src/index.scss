@@ -1,32 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-.nobg {
+.nobg{
   background-image: none;
   background-repeat: none;
 }
-
-.bg {
+.bg{
   background-image: url(./assets/image/grass-pixel-art-background-texture-250nw-1910167030.jpg);
   background-repeat: repeat;
 }
-
-.sfondoEsegui {
+.sfondoEsegui{
   background-color: #1E1E1E;
 }
-
-.roundOut {
+.roundOut{
   border-radius: 0 0 0.5rem 0.5rem;
 }
-
-.impostazioni {
-  position: fixed;
+.impostazioni{
+  position: fixed ;
   right: 20px;
   top: 20px;
   background-color: #000000;
@@ -34,18 +30,18 @@
   padding: 1rem;
   border-radius: 50%;
   transition: all 0.5s;
-}
-.impostazioni:hover {
-  transform: scale(1.1);
-  box-shadow: 5px 5px 5px white;
-  border: white solid 2px;
-}
-.impostazioni img {
-  filter: invert(100%);
+  &:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 5px white;
+    border: white solid 2px;
+  }
+  img{
+    filter: invert(100%);
+  }
 }
 
-.impostazioni2 {
-  position: fixed;
+.impostazioni2{
+  position: fixed ;
   right: 120px;
   top: 20px;
   background-color: #000000;
@@ -53,20 +49,18 @@
   padding: 1rem;
   border-radius: 50%;
   transition: all 0.5s;
+  &:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 5px 5px white;
+    border: white solid 2px;
+  }
+  img{
+    filter: invert(100%);
+  }
 }
-.impostazioni2:hover {
-  transform: scale(1.1);
-  box-shadow: 5px 5px 5px white;
-  border: white solid 2px;
-}
-.impostazioni2 img {
-  filter: invert(100%);
-}
-
-.hide {
+.hide{
   opacity: 0.5;
 }
-
-.vis {
+.vis{
   opacity: 1;
-}/*# sourceMappingURL=index.css.map */
+}
