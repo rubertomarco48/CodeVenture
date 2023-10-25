@@ -40,7 +40,7 @@ function CodeEditor() {
   };
 
   return (
-    <div>
+    <div className='rounded-md relative z-0'>
       <MonacoEditor
         width="600"
         height="500"

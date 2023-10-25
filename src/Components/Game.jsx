@@ -1,7 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as PIXI from 'pixi.js';
 import CodeEditor from '../CodeEditor';
+import FrameSetting from './FrameSetting/FrameSetting';
 export default function Game() {
+  const [showSetting,setShowSetting]=useState(false)
   const fieldContainer = useRef(null);
   const characterRef = useRef(null);
   const npcRef = useRef(null);
@@ -225,6 +227,10 @@ export default function Game() {
     };
   }, []);
 
+  const handleShowSetting=()=>{
+    setShowSetting(prev=>!prev)
+  }
+
   return (
     <div className="relative">
       <div id="field-container" ref={fieldContainer} className="relative">
@@ -232,6 +238,8 @@ export default function Game() {
       <div className="absolute top-4 left-4">
         <CodeEditor />
       </div>
+      <button className='impostazioni' onClick={handleShowSetting}>{!showSetting ?  <img src="./src/assets/image/ingranaggio.gif"/> :<img src="./src/assets/image/x.png" alt="" />}</button>
+      {showSetting && <FrameSetting/>}
     </div>
   );
 }
