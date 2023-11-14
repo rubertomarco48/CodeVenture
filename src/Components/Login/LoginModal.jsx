@@ -175,13 +175,20 @@ function LoginModal({ isOpen, toggleModal }) {
                   >
                     Accedi
                   </button>}
+                  {isLogged && <button
+                    type="submit"
+                    className="bg-cfff4b text-white px-10 py-4 rounded-md hover:bg-opacity-80 m-auto"
+                    style={stileBottone}
+                  >
+                    Esci
+                  </button>}
 
-                  <button
+                  {!isLogged && <button
                     className="bg-blue-500 text-white px-10 py-4 rounded-md hover:bg-blue-700 ml-4"
                     onClick={mostraSignUpModal}
                   >
                     Registrati
-                  </button>
+                  </button>}
                 </div>
               </form>
             </div>
