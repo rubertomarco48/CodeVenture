@@ -150,28 +150,34 @@ export default function Game() {
     
         const graphics = new PIXI.Graphics();
         graphics.beginFill(0xffffff);
-        graphics.drawRect(700, 20, 700, 500);
+        graphics.drawRect(700, 20, 1250, 510);
         graphics.endFill();
         app.stage.addChild(graphics);
     
-        let conversationText = new PIXI.Text(`Ciao Admin!, sono Code è da oggi inzierà la tua avventura 
-nella programmazione. La tua avventura incomincia dalle variabili
-Una variabile è un oggetto che rappresenta una posizione di memoria.
-In cui è possibile memorizzare e recuperare un valore.Una variabile
-ha un nome univoco che viene utilizzato per identificarla nel programma
-Il nome della variabile è ciò che permette di fare riferimento 
-ad essa nel programma
-In javascript le variabili vengono dichiarate con le parole chiave:
-Var: la variabile può essere dichiarata senza assegnare un va lore iniziale.
-Let viene utilizzata per dichiarare una variabile con uno scope di blocco.
-Costanti, in javascript le costanti vengono dichiarate con la parola 
-chiave const.
+        let conversationText = new PIXI.Text(`Ciao Admin!,in questo livello vedrai le funzioni. 
+
+Una funzione è un blocco di codice che può essere chiamato o eseguito per svolgere una specifica operazione o compito.
+Le funzioni consentono di organizzare il codice in unità modulari e riutilizzabili, facilitando la scrittura, la comprensione e la manutenzione 
+del programma.
+Una funzione può essere definita con un nome univoco e può essere chiamata da altre parti del programma ogni volta che è necessario 
+eseguire il suo comportamento.
+
+Funzioni ricorsive: Una funzione ricorsiva è un modo di definire una funzione in cui la sua implementazione si basa sulla 
+sua stessa definizione, frammentando il problema principale in sottoproblemi più piccoli. 
+Questa definizione si articola in due parti cruciali: il caso base e il passo induttivo.
+Il caso base fornisce la condizione che determina quando la ricorsione deve terminare, indicando un risultato noto per input specifici.
+In assenza di questa condizione, la funzione continuerebbe a chiamare se stessa all'infinito.
+Il passo induttivo specifica come la funzione si richiama, generalmente con argomenti modificati o ridotti, 
+procedendo in direzione del caso base. Questa parte è essenziale poiché permette di risolvere il problema originale suddividendolo
+in sottoproblemi più gestibili, avvicinandosi così alla soluzione completa.
 
 Esercizio: 
-Date due variabili si scambi il loro contenuto
+Si scriva una funzione ricorsiva che calcoli il fattoriale di un numero. 
+
+Per calcolare il fattoriale si consideri questa formula: n! = n · (n − 1)
 `, {
           fontFamily: 'Arial',
-          fontSize: 20,
+          fontSize: 19,
           fill: 0x000000,
         });
         conversationText.x = 710;
@@ -183,42 +189,7 @@ Date due variabili si scambi il loro contenuto
         graphics.on('pointerdown', () => {
           app.stage.removeChild(graphics);
           app.stage.removeChild(conversationText);
-          /* modfica blocco di testo*/ 
-          // if (conversationText.text === 'Ciao, sono code è da oggi inzierà la tua avventura nella programmazione') {
-          //   conversationText.text = 'La tua avventura incomincia dalle variabili';
-          // } else if (conversationText.text === 'La tua avventura incomincia dalle variabili') {
-          //   conversationText.text = `Una variabile è un oggetto che rappresenta una posizione di memoria.`;
-          // } else if (conversationText.text === `Una variabile è un oggetto che rappresenta una posizione di memoria.`) {
-          //   conversationText.text = `in cui è possibile memorizzare e recuperare un valore`;
-          // } else if (conversationText.text === `in cui è possibile memorizzare e recuperare un valore`) {
-          //   conversationText.text = `Una variabile ha un nome univoco che viene utilizzato per identificarla nel programma`;
-          // } else if (conversationText.text === `Una variabile ha un nome univoco che viene utilizzato per identificarla nel programma`) {
-          //   conversationText.text = `Il nome della variabile è ciò che permette di fare riferimento ad essa nel programma.`;
-          // } else if (conversationText.text === `Il nome della variabile è ciò che permette di fare riferimento ad essa nel programma.`){
-          //     conversationText.text = `In javascript le variabili vengono dichiarate con le parole chiave:`;
-          // } else if (conversationText.text === `In javascript le variabili vengono dichiarate con le parole chiave:`) {
-          //   conversationText.text = `Var: la variabile può essere dichiarata senza assegnare un valore iniziale.`;
-          // } else if (conversationText.text === `Var: la variabile può essere dichiarata senza assegnare un valore iniziale.`){
-          //     conversationText.text=` Può essere successivamente assegnata con un valore.`;
-          // } else if (conversationText.text===` Può essere successivamente assegnata con un valore.`) {
-          //   conversationText.text = `Tuttavia la parola chiave var è deprecata, ed è stata sostituita con let.`;
-          // } else if ( conversationText.text ===`Tuttavia la parola chiave var è deprecata, ed è stata sostituita con let.`){
-          //   conversationText.text = `Let viene utilizzata per dichiarare una variabile con uno scope di blocco.`;
-          // } else if(conversationText.text === `Let viene utilizzata per dichiarare una variabile con uno scope di blocco.`) {
-          //   conversationText.text = `Sintassi di let: let variabelName="sono una variabile";`
-          // } else if (  conversationText.text === `Sintassi di let: let variabelName="sono una variabile";`) {
-          //   conversationText.text =`Costanti, in javascript le costanti vengono dichiarate con la parola chiave const`;
-          // } else if( conversationText.text ===`Costanti, in javascript le costanti vengono dichiarate con la parola chiave const`){
-          //   conversationText.text =`nel momento in cui si assegna un valore a const, quel valore non può essere modificato.`;
-          // } else if (conversationText.text ===`nel momento in cui si assegna un valore a const, quel valore non può essere modificato.`) {
-          //   conversationText.text = `Sintassi di const: const pi=3.14;`
-          // } else if( conversationText.text === `Sintassi di const: const pi=3.14;`){
-          //   conversationText.text = `Adesso che abbiamo visto le prime nonzioni sulle variabili, partirà la tua prima sfida`
-          // }else if (conversationText.text === `Adesso che abbiamo visto le prime nonzioni sulle variabili, partirà la tua prima sfida`){
-          //   conversationText.text=`Date due variabili si scambi il loro contenuto`
-          // }else{
-          //   conversationComplete = true;
-          // }
+          
     
           app.stage.addChild(graphics);
           app.stage.addChild(conversationText);
